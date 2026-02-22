@@ -18,6 +18,7 @@
 const express = require("express");
 const cors = require("cors");
 const userRoutes = require("./routes/user.routes");
+const roleRoutes = require("./routes/role.routes");
 
 // Crear instancia de la aplicación Express
 const app = express();
@@ -30,6 +31,8 @@ app.use(express.json());
 
 // Registrar rutas de usuarios bajo el prefijo /api/users
 app.use("/api/users", userRoutes);
+
+app.use("/api/roles", roleRoutes);
 
 // Exportar la aplicación para que server.js pueda iniciarla
 module.exports = app;
