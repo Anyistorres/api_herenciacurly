@@ -20,6 +20,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/user.routes");
 const roleRoutes = require("./routes/role.routes");
 const categoryRoutes = require("./routes/category.routes");
+const productRoutes = require("./routes/product.routes");
 
 // Crear instancia de la aplicación Express
 const app = express();
@@ -29,6 +30,9 @@ app.use(cors());
 
 // Middleware: Parsear el cuerpo de solicitudes JSON automáticamente
 app.use(express.json());
+
+// Registrar rutas de productos bajo el prefijo /api/products
+app.use("/api/products", productRoutes);
 
 // Registrar rutas de usuarios bajo el prefijo /api/users
 app.use("/api/users", userRoutes);
